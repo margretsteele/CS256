@@ -1,0 +1,40 @@
+?- dead(peeves).
+true.
+
+?- thrivesOn(michaelcorvin, X).
+X = blood ;
+X = flesh.
+
+?- monster(caspar).
+true .
+
+?- looksLike(samuley, X).
+X = wolf .
+
+?- vampire(X).
+X = dracula ;
+X = edwardcullen ;
+X = michaelcorvin.	
+
+?- thrivesOn(X, Y).
+X = dracula,
+Y = blood ;
+X = edwardcullen,
+Y = blood ;
+X = michaelcorvin,
+Y = blood ;
+X = caspar,
+Y = fear ;
+X = peeves,
+Y = fear ;
+X = samuley,
+Y = flesh ;
+X = michaelcorvin,
+Y = flesh.
+
+
+?- thrivesOn(X, fear), looksLike(X, human).
+X = caspar ;
+X = peeves .
+
+

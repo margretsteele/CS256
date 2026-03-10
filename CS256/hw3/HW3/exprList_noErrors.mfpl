@@ -1,0 +1,8 @@
+(% Main expr starts
+(* 5 1)
+(let ((x 5) (y 6)) (+ x y))
+(if 0 1 2)
+(print "asdf")
+(lambda (x y z) (/ x (- y z)))
+(input)
+)

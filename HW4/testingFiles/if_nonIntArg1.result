@@ -1,0 +1,60 @@
+TOKEN: LPAREN    LEXEME: (
+TOKEN: LET       LEXEME: let
+
+___Entering new scope...
+
+TOKEN: LPAREN    LEXEME: (
+ID_EXPR_LIST -> epsilon
+TOKEN: LPAREN    LEXEME: (
+TOKEN: IDENT     LEXEME: x
+TOKEN: INTCONST  LEXEME: 4
+EXPR -> INTCONST
+TOKEN: RPAREN    LEXEME: )
+ID_EXPR_LIST -> ID_EXPR_LIST ( ID EXPR )
+___Adding x to symbol table
+TOKEN: LPAREN    LEXEME: (
+TOKEN: IDENT     LEXEME: y
+TOKEN: INTCONST  LEXEME: 5
+EXPR -> INTCONST
+TOKEN: RPAREN    LEXEME: )
+ID_EXPR_LIST -> ID_EXPR_LIST ( ID EXPR )
+___Adding y to symbol table
+TOKEN: LPAREN    LEXEME: (
+TOKEN: IDENT     LEXEME: z
+TOKEN: LPAREN    LEXEME: (
+TOKEN: LAMBDA    LEXEME: lambda
+
+___Entering new scope...
+
+TOKEN: LPAREN    LEXEME: (
+ID_LIST -> epsilon
+TOKEN: IDENT     LEXEME: x
+ID_LIST -> ID_LIST ID
+___Adding x to symbol table
+TOKEN: IDENT     LEXEME: y
+ID_LIST -> ID_LIST ID
+___Adding y to symbol table
+TOKEN: RPAREN    LEXEME: )
+TOKEN: INTCONST  LEXEME: 5
+EXPR -> INTCONST
+LAMBDA_EXPR -> lambda ( ID_LIST ) EXPR
+
+___Exiting scope...
+
+PARENTHESIZED_EXPR -> LAMBDA_EXPR
+TOKEN: RPAREN    LEXEME: )
+EXPR -> ( PARENTHESIZED_EXPR )
+TOKEN: RPAREN    LEXEME: )
+ID_EXPR_LIST -> ID_EXPR_LIST ( ID EXPR )
+___Adding z to symbol table
+TOKEN: RPAREN    LEXEME: )
+TOKEN: LPAREN    LEXEME: (
+TOKEN: IF        LEXEME: if
+TOKEN: IDENT     LEXEME: z
+EXPR -> ID
+TOKEN: IDENT     LEXEME: x
+EXPR -> ID
+TOKEN: IDENT     LEXEME: y
+EXPR -> ID
+IF_EXPR -> if EXPR EXPR EXPR
+Line 7: Arg 1 must be of type integer

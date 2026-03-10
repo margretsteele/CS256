@@ -1,0 +1,11 @@
+(
+  (let ( (z (input))
+       ) 
+    (print z)
+  )
+  (let ( (x 0) 
+         (y 20)
+       )
+    (* x z)
+  )
+)

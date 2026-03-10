@@ -1,0 +1,10 @@
+a.out
+*.o
+*.out
+*.swp
+*~
+.DS_Store
+~$*
+mfpl_lexer
+steelem_parser
+steelem_eval

@@ -1,0 +1,54 @@
+TOKEN: LPAREN    LEXEME: (
+TOKEN: LET       LEXEME: let
+
+___Entering new scope...
+
+TOKEN: LPAREN    LEXEME: (
+ID_EXPR_LIST -> epsilon
+TOKEN: LPAREN    LEXEME: (
+TOKEN: IDENT     LEXEME: sub
+TOKEN: LPAREN    LEXEME: (
+TOKEN: LAMBDA    LEXEME: lambda
+
+___Entering new scope...
+
+TOKEN: LPAREN    LEXEME: (
+ID_LIST -> epsilon
+TOKEN: IDENT     LEXEME: x
+ID_LIST -> ID_LIST ID
+___Adding x to symbol table
+TOKEN: IDENT     LEXEME: y
+ID_LIST -> ID_LIST ID
+___Adding y to symbol table
+TOKEN: RPAREN    LEXEME: )
+TOKEN: LPAREN    LEXEME: (
+TOKEN: SUB       LEXEME: -
+OP -> -
+TOKEN: IDENT     LEXEME: x
+EXPR -> ID
+TOKEN: IDENT     LEXEME: y
+EXPR -> ID
+ARITHMETIC_EXPR -> OP EXPR EXPR
+PARENTHESIZED_EXPR -> ARITHMETIC_EXPR
+TOKEN: RPAREN    LEXEME: )
+EXPR -> ( PARENTHESIZED_EXPR )
+LAMBDA_EXPR -> lambda ( ID_LIST ) EXPR
+
+___Exiting scope...
+
+PARENTHESIZED_EXPR -> LAMBDA_EXPR
+TOKEN: RPAREN    LEXEME: )
+EXPR -> ( PARENTHESIZED_EXPR )
+TOKEN: RPAREN    LEXEME: )
+ID_EXPR_LIST -> ID_EXPR_LIST ( ID EXPR )
+___Adding sub to symbol table
+TOKEN: RPAREN    LEXEME: )
+TOKEN: LPAREN    LEXEME: (
+TOKEN: ADD       LEXEME: +
+OP -> +
+TOKEN: IDENT     LEXEME: sub
+EXPR -> ID
+TOKEN: INTCONST  LEXEME: 4
+EXPR -> INTCONST
+ARITHMETIC_EXPR -> OP EXPR EXPR
+Line 3: Arg 1 must be of type integer
