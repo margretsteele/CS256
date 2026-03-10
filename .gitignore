@@ -8,3 +8,12 @@ a.out
 mfpl_lexer
 steelem_parser
 steelem_eval
+*.docx
+*.xlsx
+*.xls
+*.doc
+*.ppt
+*.pptx
+*.pub
+*.vsd
+*.vsdx
